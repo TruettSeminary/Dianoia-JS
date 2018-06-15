@@ -84,12 +84,9 @@ var UserEngine = function () {
     }, {
         key: 'addClass',
         value: function addClass(user, class_id) {
-            var classes = user.classes ? user.classes : [];
-            classes.push({
-                "_id": '' + class_id
-            });
+            user.classes.push(class_id);
             var body = {
-                classes: classes
+                classes: user.classes
             };
 
             return this.update(user, body);
@@ -98,8 +95,8 @@ var UserEngine = function () {
         key: 'removeClass',
         value: function removeClass(user, class_id) {
             // filter and set
-            var classes = user.classes.filter(function (clazz) {
-                return clazz._id !== class_id;
+            var classes = user.classes.filter(function (userClass_id) {
+                return userClass_id !== class_id;
             });
 
             var body = {
@@ -110,12 +107,26 @@ var UserEngine = function () {
     }, {
         key: 'addDeck',
         value: function addDeck(user, deck_id) {
-            // push
+            user.decks.push(deck_id);
+            var body = {
+                decks: user.decks
+            };
+
+            return this.update(user, body);
         }
     }, {
         key: 'removeDeck',
         value: function removeDeck(user, deck_id) {
             // filter and set
+            var decks = user.decks.filter(function (userDeck_id) {
+                return userDeck_id !== deck_id;
+            });
+
+            var body = {
+                decks: decks
+            };
+
+            return this.update(user, body);
         }
     }]);
 

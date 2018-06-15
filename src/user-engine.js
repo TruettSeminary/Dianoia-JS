@@ -65,12 +65,9 @@ export default class UserEngine {
 
     // TODO: watch out for issues with immutablejs
     addClass(user, class_id) {
-        const classes = user.classes ? user.classes : []; 
-        classes.push({
-            "_id": `${class_id}`
-        }); 
+        user.classes.push(class_id); 
         const body = {
-            classes: classes
+            classes: user.classes
         }
 
         return this.update(user, body); 
@@ -78,9 +75,11 @@ export default class UserEngine {
 
     removeClass(user, class_id) {
         // filter and set
-        const classes = user.classes.filter((clazz) => {
-            return clazz._id !== class_id; 
+        const classes = user.classes.filter((userClass_id) => {
+            return userClass_id !== class_id; 
         });
+
+        // TODO: remove all decks from a specific class from a user when a user removes a class. 
 
         const body = {
             classes
@@ -89,11 +88,25 @@ export default class UserEngine {
     }
 
     addDeck(user, deck_id) {
-        // push
+        user.decks.push(deck_id); 
+        const body = {
+            decks: user.decks
+        }
+
+        return this.update(user, body); 
     }   
 
     removeDeck(user, deck_id) {
         // filter and set
+        const decks = user.decks.filter((userDeck_id) => {
+            return userDeck_id !== deck_id
+        });
+
+        const body = {
+            decks
+        }
+
+        return this.update(user, body); 
     }
 
 }
