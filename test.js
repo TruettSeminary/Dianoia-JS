@@ -6,8 +6,8 @@ const api = new Dianoia.Dianoia({
     baseURL: 'http://localhost:1337'
 });
 
-const email = 'dev+wright@austinbratcher.com'; 
-const password = 'wright'; 
+const email = 'Barth'; 
+const password = 'barth'; 
 
 async function login() {
     return await api.loginUser(email, password); 
@@ -35,13 +35,17 @@ async function getAllClasses() {
     return await api.getAllClasses(); 
 }
 
+async function getAllCards() {
+    return await api.getAllCards(); 
+}
+
 async function test() {
     const response = await login(); 
     api.setJWT(response.jwt); 
-    const user = await me(); 
-    console.log(user);
-    const classes = await getAllClasses(); 
-    console.log(classes); 
+    // const user = await me(); 
+    // console.log(user);
+    const cards = await getAllCards(); 
+    console.log(cards); 
 
     // const res2 = await addClass(user,"5af0e1eb9bd37604420c2156"); 
     // console.log(res2); 

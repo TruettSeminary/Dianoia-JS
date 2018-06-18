@@ -99,6 +99,8 @@ var UserEngine = function () {
                 return userClass_id !== class_id;
             });
 
+            // TODO: remove all decks from a specific class from a user when a user removes a class. 
+
             var body = {
                 classes: classes
             };

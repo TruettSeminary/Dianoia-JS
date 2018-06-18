@@ -24,6 +24,10 @@ var _deckEngine = require('./deck-engine');
 
 var _deckEngine2 = _interopRequireDefault(_deckEngine);
 
+var _cardEngine = require('./card-engine');
+
+var _cardEngine2 = _interopRequireDefault(_cardEngine);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43,6 +47,7 @@ var Dianoia = function () {
         this.userEngine = new _userEngine2.default(this.fetcher);
         this.classEngine = new _classEngine2.default(this.fetcher);
         this.deckEngine = new _deckEngine2.default(this.fetcher);
+        this.cardEngine = new _cardEngine2.default(this.fetcher);
     }
 
     _createClass(Dianoia, [{
@@ -110,6 +115,11 @@ var Dianoia = function () {
         key: 'removeDeckFromUser',
         value: function removeDeckFromUser(user, deck_id) {
             return this.userEngine.removeDeck(user, deck_id);
+        }
+    }, {
+        key: 'getAllCards',
+        value: function getAllCards() {
+            return this.cardEngine.getCards();
         }
     }]);
 

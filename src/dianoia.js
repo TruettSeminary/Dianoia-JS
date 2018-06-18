@@ -3,6 +3,7 @@ import FetchEngine from './fetch-engine';
 import UserEngine from './user-engine'; 
 import ClassEngine from './class-engine';
 import DeckEngine from './deck-engine';
+import CardEngine from './card-engine'; 
 
 class Dianoia {
 
@@ -15,6 +16,7 @@ class Dianoia {
         this.userEngine = new UserEngine(this.fetcher); 
         this.classEngine = new ClassEngine(this.fetcher); 
         this.deckEngine = new DeckEngine(this.fetcher); 
+        this.cardEngine = new CardEngine(this.fetcher); 
     }
 
     setJWT(jwt) {
@@ -68,6 +70,10 @@ class Dianoia {
 
     removeDeckFromUser(user, deck_id) {
         return this.userEngine.removeDeck(user, deck_id); 
+    }
+
+    getAllCards() {
+        return this.cardEngine.getCards(); 
     }
 
 }
