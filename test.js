@@ -39,13 +39,35 @@ async function getAllCards() {
     return await api.getAllCards(); 
 }
 
+async function getAllNotes() {
+    return await api.getAllNotes(); 
+}
+
+async function createNote() {
+    return await api.addUserNote(
+        "This is a note from the dianoia-js library", 
+        "5b0c187c1fcd9f3793c8413e"
+    ); 
+}
+
+async function updateNote() {
+    return await api.updateUserCardNote({
+        note_id: "5b281600d7f56e82539bca61", 
+        card_score: 27
+    });
+}
+
+
+
 async function test() {
     const response = await login(); 
     api.setJWT(response.jwt); 
     // const user = await me(); 
     // console.log(user);
-    const cards = await getAllCards(); 
-    console.log(cards); 
+    // const note = await getAllNotes(); 
+
+    const note = await updateNote(); 
+    console.log(note); 
 
     // const res2 = await addClass(user,"5af0e1eb9bd37604420c2156"); 
     // console.log(res2); 

@@ -28,6 +28,10 @@ var _cardEngine = require('./card-engine');
 
 var _cardEngine2 = _interopRequireDefault(_cardEngine);
 
+var _noteEngine = require('./note-engine');
+
+var _noteEngine2 = _interopRequireDefault(_noteEngine);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48,6 +52,7 @@ var Dianoia = function () {
         this.classEngine = new _classEngine2.default(this.fetcher);
         this.deckEngine = new _deckEngine2.default(this.fetcher);
         this.cardEngine = new _cardEngine2.default(this.fetcher);
+        this.noteEngine = new _noteEngine2.default(this.fetcher);
     }
 
     _createClass(Dianoia, [{
@@ -120,6 +125,41 @@ var Dianoia = function () {
         key: 'getAllCards',
         value: function getAllCards() {
             return this.cardEngine.getCards();
+        }
+    }, {
+        key: 'getAllNotes',
+        value: function getAllNotes() {
+            return this.noteEngine.getNotes();
+        }
+    }, {
+        key: 'addUserNote',
+        value: function addUserNote(_ref2) {
+            var note = _ref2.note,
+                card_id = _ref2.card_id,
+                card_score = _ref2.card_score,
+                view_status = _ref2.view_status;
+
+            return this.noteEngine.addNote({
+                note: note,
+                card_id: card_id,
+                card_score: card_score,
+                view_status: view_status
+            });
+        }
+    }, {
+        key: 'updateUserNote',
+        value: function updateUserNote(_ref3) {
+            var note_id = _ref3.note_id,
+                note = _ref3.note,
+                card_score = _ref3.card_score,
+                view_status = _ref3.view_status;
+
+            return this.noteEngine.updateNote({
+                note_id: note_id,
+                note: note,
+                card_score: card_score,
+                view_status: view_status
+            });
         }
     }]);
 

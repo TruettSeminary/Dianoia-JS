@@ -4,6 +4,7 @@ import UserEngine from './user-engine';
 import ClassEngine from './class-engine';
 import DeckEngine from './deck-engine';
 import CardEngine from './card-engine'; 
+import NoteEngine from './note-engine'; 
 
 class Dianoia {
 
@@ -17,6 +18,7 @@ class Dianoia {
         this.classEngine = new ClassEngine(this.fetcher); 
         this.deckEngine = new DeckEngine(this.fetcher); 
         this.cardEngine = new CardEngine(this.fetcher); 
+        this.noteEngine = new NoteEngine(this.fetcher); 
     }
 
     setJWT(jwt) {
@@ -74,6 +76,28 @@ class Dianoia {
 
     getAllCards() {
         return this.cardEngine.getCards(); 
+    }
+
+    getAllNotes() {
+        return this.noteEngine.getNotes(); 
+    }
+
+    addUserNote({ note, card_id,  card_score, view_status }) {
+        return this.noteEngine.addNote({
+            note,
+            card_id, 
+            card_score, 
+            view_status
+        }); 
+    }
+    
+    updateUserNote({ note_id, note, card_score, view_status }) {
+        return this.noteEngine.updateNote({
+            note_id,
+            note,
+            card_score, 
+            view_status
+        });
     }
 
 }
