@@ -42,12 +42,13 @@ class Dianoia {
         return this.userEngine.update(user_id, body); 
     }
 
-    sendUserForgotPasswordLink(email, url) {
+    sendForgotPasswordLink(email, url) {
+
         return this.userEngine.sendForgotPasswordLink(email, url); 
     }
 
-    updateUserPassword(user_id, password, code) {
-        return this.userEngine.updatePassword(user_id, password, code); 
+    resetPassword(code, password, passwordConfirmation) {
+        return this.userEngine.resetPassword(code, password, passwordConfirmation); 
     }
 
     getAllClasses() {

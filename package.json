@@ -1,6 +1,6 @@
 {
   "name": "dianoia-js",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "API Wrapper for Dianoia server",
   "main": "dist/index.js",
   "scripts": {

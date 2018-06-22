@@ -82,14 +82,15 @@ var Dianoia = function () {
             return this.userEngine.update(user_id, body);
         }
     }, {
-        key: 'sendUserForgotPasswordLink',
-        value: function sendUserForgotPasswordLink(email, url) {
+        key: 'sendForgotPasswordLink',
+        value: function sendForgotPasswordLink(email, url) {
+
             return this.userEngine.sendForgotPasswordLink(email, url);
         }
     }, {
-        key: 'updateUserPassword',
-        value: function updateUserPassword(user_id, password, code) {
-            return this.userEngine.updatePassword(user_id, password, code);
+        key: 'resetPassword',
+        value: function resetPassword(code, password, passwordConfirmation) {
+            return this.userEngine.resetPassword(code, password, passwordConfirmation);
         }
     }, {
         key: 'getAllClasses',

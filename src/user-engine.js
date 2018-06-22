@@ -53,12 +53,14 @@ export default class UserEngine {
         
     }
 
-    updatePassword(user_id, password, code) {
+    resetPassword(code, password, passwordConfirmation) {
         const path = '/auth/reset-password';
         return this.fetcher.post({
             path, 
             body: {
-
+                code,
+                password,
+                passwordConfirmation
             }
         })
     }

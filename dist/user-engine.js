@@ -70,12 +70,16 @@ var UserEngine = function () {
             });
         }
     }, {
-        key: 'updatePassword',
-        value: function updatePassword(user_id, password, code) {
+        key: 'resetPassword',
+        value: function resetPassword(code, password, passwordConfirmation) {
             var path = '/auth/reset-password';
             return this.fetcher.post({
                 path: path,
-                body: {}
+                body: {
+                    code: code,
+                    password: password,
+                    passwordConfirmation: passwordConfirmation
+                }
             });
         }
 
