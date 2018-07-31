@@ -101,6 +101,16 @@ class Dianoia {
         });
     }
 
+    addOrUpdateUserNote({ _id, card, note, card_score, view_status}) {
+        return this.noteEngine.addOrUpdateNote({
+            _id,
+            card,
+            card_score,
+            note,
+            view_status
+        }); 
+    }
+
 }
 
 export {

@@ -162,6 +162,23 @@ var Dianoia = function () {
                 view_status: view_status
             });
         }
+    }, {
+        key: 'addOrUpdateUserNote',
+        value: function addOrUpdateUserNote(_ref4) {
+            var _id = _ref4._id,
+                card = _ref4.card,
+                note = _ref4.note,
+                card_score = _ref4.card_score,
+                view_status = _ref4.view_status;
+
+            return this.noteEngine.addOrUpdateNote({
+                _id: _id,
+                card: card,
+                card_score: card_score,
+                note: note,
+                view_status: view_status
+            });
+        }
     }]);
 
     return Dianoia;

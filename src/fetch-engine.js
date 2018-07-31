@@ -4,6 +4,7 @@ const HTTP_METHODS = {
     GET: 'GET',
     POST: 'POST', 
     PUT: 'PUT', 
+    PATCH: 'PATCH',
     DELETE: 'DELETE', 
     HEAD: 'HEAD', 
     OPTIONS: 'OPTIONS', 
@@ -106,6 +107,15 @@ export default class FetchEngine {
     put({path, params, body}) {
         return this.request({
             method: HTTP_METHODS.PUT, 
+            path,
+            params, 
+            body
+        });
+    }
+
+    patch({path, params, body}) {
+        return this.request({
+            method: HTTP_METHODS.PATCH, 
             path,
             params, 
             body

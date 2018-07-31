@@ -18,6 +18,7 @@ var HTTP_METHODS = {
     GET: 'GET',
     POST: 'POST',
     PUT: 'PUT',
+    PATCH: 'PATCH',
     DELETE: 'DELETE',
     HEAD: 'HEAD',
     OPTIONS: 'OPTIONS',
@@ -158,11 +159,25 @@ var FetchEngine = function () {
             });
         }
     }, {
-        key: 'delete',
-        value: function _delete(_ref5) {
+        key: 'patch',
+        value: function patch(_ref5) {
             var path = _ref5.path,
                 params = _ref5.params,
                 body = _ref5.body;
+
+            return this.request({
+                method: HTTP_METHODS.PATCH,
+                path: path,
+                params: params,
+                body: body
+            });
+        }
+    }, {
+        key: 'delete',
+        value: function _delete(_ref6) {
+            var path = _ref6.path,
+                params = _ref6.params,
+                body = _ref6.body;
 
             return this.request({
                 method: HTTP_METHODS.DELETE,

@@ -67,6 +67,29 @@ var NoteEngine = function () {
                 body: body
             });
         }
+    }, {
+        key: 'addOrUpdateNote',
+        value: function addOrUpdateNote(_ref3) {
+            var _id = _ref3._id,
+                card = _ref3.card,
+                note = _ref3.note,
+                card_score = _ref3.card_score,
+                view_status = _ref3.view_status;
+
+            var path = '/note/';
+
+            var body = {};
+            if (_id !== undefined) body._id = _id;
+            if (card !== undefined) body.card = card;
+            if (card_score !== undefined) body.card_score = card_score;
+            if (note !== undefined) body.note = note;
+            if (view_status !== undefined) body.view_status = view_status;
+
+            return this.fetcher.patch({
+                path: path,
+                body: body
+            });
+        }
     }]);
 
     return NoteEngine;
