@@ -5,6 +5,8 @@ import ClassEngine from './class-engine';
 import DeckEngine from './deck-engine';
 import CardEngine from './card-engine'; 
 import NoteEngine from './note-engine'; 
+import TranslationEngine from './translation-engine'; 
+import AdminEngine from './admin-engine'; 
 
 class Dianoia {
 
@@ -19,6 +21,8 @@ class Dianoia {
         this.deckEngine = new DeckEngine(this.fetcher); 
         this.cardEngine = new CardEngine(this.fetcher); 
         this.noteEngine = new NoteEngine(this.fetcher); 
+        this.translationEngine = new TranslationEngine(this.fetcher);
+        this.adminEngine = new AdminEngine(this.fetcher); 
     }
 
     setJWT(jwt) {
@@ -111,6 +115,9 @@ class Dianoia {
         }); 
     }
 
+    getAllTranslations() {
+        return this.translationEngine.getTranslations(); 
+    }
 }
 
 export {

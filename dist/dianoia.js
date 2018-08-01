@@ -32,6 +32,14 @@ var _noteEngine = require('./note-engine');
 
 var _noteEngine2 = _interopRequireDefault(_noteEngine);
 
+var _translationEngine = require('./translation-engine');
+
+var _translationEngine2 = _interopRequireDefault(_translationEngine);
+
+var _adminEngine = require('./admin-engine');
+
+var _adminEngine2 = _interopRequireDefault(_adminEngine);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53,6 +61,8 @@ var Dianoia = function () {
         this.deckEngine = new _deckEngine2.default(this.fetcher);
         this.cardEngine = new _cardEngine2.default(this.fetcher);
         this.noteEngine = new _noteEngine2.default(this.fetcher);
+        this.translationEngine = new _translationEngine2.default(this.fetcher);
+        this.adminEngine = new _adminEngine2.default(this.fetcher);
     }
 
     _createClass(Dianoia, [{
@@ -178,6 +188,11 @@ var Dianoia = function () {
                 note: note,
                 view_status: view_status
             });
+        }
+    }, {
+        key: 'getAllTranslations',
+        value: function getAllTranslations() {
+            return this.translationEngine.getTranslations();
         }
     }]);
 
