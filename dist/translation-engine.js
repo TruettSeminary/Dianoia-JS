@@ -19,7 +19,7 @@ var TranslationEngine = function () {
         key: 'getTranslations',
         value: function getTranslations() {
             var path = '/translation';
-            return this.fetacher.get({
+            return this.fetcher.get({
                 path: path
             });
         }

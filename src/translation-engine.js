@@ -5,7 +5,7 @@ export default class TranslationEngine {
 
     getTranslations() {
         const path = '/translation'; 
-        return this.fetacher.get({
+        return this.fetcher.get({
             path
         }); 
     }
